@@ -12,11 +12,8 @@ class EmailParser
     end
 
     def parse
-      if @emails.include?(', ')
-        return @emails.split(', ').uniq
-      else
-        return @emails.split(' ').uniq
-      end
+      @emails.split(/[(, )( )]/).delete_if{|x| x.length == 0}
+
     end
 end
 #

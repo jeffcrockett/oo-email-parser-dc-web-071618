@@ -12,7 +12,11 @@ class EmailParser
     end
 
     def parse
-      @emails.split(', ', ' ').uniq
+      if @emails.include?(', ')
+        return @emails.split(', ').uniq
+      else
+        return @emails.split(' ').uniq
+      end
     end
 end
 #
